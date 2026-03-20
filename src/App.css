@@ -1,0 +1,59 @@
+.container {
+  background-color: #303030;
+  height: 30rem;
+  width: 20rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.collumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.collumn img {
+  width: 50%;
+}
+
+.collumn p {
+  font-size: 3rem; /* 10rem tava gigante demais */
+  margin: 0;
+  font-weight: bold;
+}
+
+.collumn span {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* opcional: estilizar o input e botão */
+.search-box {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search-box input {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.search-box button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #0077ff;
+  color: white;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background-color: #005fcc;
+}
