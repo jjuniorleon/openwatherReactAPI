@@ -32,21 +32,21 @@ function App() {
     if (!cityName.trim()) return;
 
     try {
-      const apiKey = "cf2b2386a2aa1bb5aa3e115ec0b52de0";
+      const apiKey = "YOUR_API_KEY_HERE";
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
         cityName,
-      )}&appid=${apiKey}&units=metric&lang=pt_br`;
+      )}&appid=${apiKey}&units=metric&lang=en`;
 
       const response = await fetch(url);
 
       if (!response.ok) {
-        throw new Error("Cidade não encontrada");
+        throw new Error("City not found");
       }
 
       const data = await response.json();
       const icon = allIcons[data.weather[0].icon] || "/Assets/clear.png";
 
-      const regionNames = new Intl.DisplayNames(["pt-BR"], { type: "region" });
+      const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
 
       const countryName = regionNames.of(data.sys.country) ?? "";
 
@@ -72,7 +72,7 @@ function App() {
       <form onSubmit={handleSubmit} className="search-box">
         <input
           type="text"
-          placeholder="Write a city"
+          placeholder="Enter a city"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
@@ -82,11 +82,11 @@ function App() {
       <div className="collumn">
         <img
           src={weatherData?.icon || "/Assets/clear.png"}
-          alt="icon of wheather!"
+          alt="weather icon"
         />
         <p>{weatherData?.temperature ?? "--"}°C</p>
         <span>
-          {weatherData && `País: ${weatherData.country}, Cidade: ${weatherData.location}`}
+          {weatherData && `Country: ${weatherData.country}, City: ${weatherData.location}`}
         </span>
       </div>
     </div>
